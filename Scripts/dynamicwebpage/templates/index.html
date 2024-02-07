@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dynamic Table</title>
+</head>
+<body>
+
+
+<style>
+    .left-div {
+      width: 20%;
+      height: 100vh;
+      background-color: blue;
+      float: left;
+    }
+  
+    .right-div {
+      width: 80%;
+      height: 100vh;
+      background-color: red;
+      float: right;
+    }
+  </style>
+  </head>
+  <body>
+  
+  <div class="left-div"></div>
+  <div class="right-div"></div>
+
+  
+<table id="myTable">
+    <thead>
+      <tr>
+        <th>Column 1</th>
+        <th>Column 2</th>
+        <th>Column 3</th>
+        <th>Column 4</th>
+        <th>Column 5</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- Table rows will be added here dynamically -->
+    </tbody>
+  </table>
+  
+  <script>
+    // Get the table body element
+    var tableBody = document.querySelector('#myTable tbody');
+  
+    // Create 20 rows
+    for (var i = 0; i < 20; i++) {
+      // Create a new table row
+      var row = document.createElement('tr');
+      
+      // Create 5 cells for each row
+      for (var j = 0; j < 5; j++) {
+        var cell = document.createElement('td');
+        cell.textContent = 'Row ' + (i + 1) + ', Column ' + (j + 1);
+        row.appendChild(cell);
+      }
+      
+      // Append the row to the table body
+      tableBody.appendChild(row);
+    }
+  </script>
+
+<button onclick="window.location.href='signup.html'">Signup</button>
+
+
+</body>
+</html>
