@@ -2,7 +2,7 @@ from django import forms
 from .models import mission
 from .models import vision, slogan
 from .models import pic1, about, whatsets, post1, post2, post3
-from .models import obj1, obj2, obj3, obj4, obj5, obj6, obj7, Image
+from .models import obj1, obj2, obj3, obj4, obj5, obj6, obj7, Image, Signup
 
 class missionAdminForm(forms.ModelForm):
     content = forms.CharField(widget=forms.Textarea(attrs={'readonly': 'readonly'}))
@@ -119,5 +119,10 @@ class ImageForm(forms.ModelForm):
     class Meta:
         model = Image
         fields = ['image']
+
+class SignupForm(forms.ModelForm):
+    class Meta:
+        model = Signup
+        fields = ['id', 'first_name', 'last_name', 'email', 'contact', 'password']
 
 

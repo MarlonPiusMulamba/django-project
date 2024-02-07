@@ -104,6 +104,9 @@
               <li class="nav-item">
                 <a class="nav-link navb" href="#contacts"> <p class="fr">Donate</p></a>
               </li>
+              <li class="nav-item">
+                <a class="nav-link navb" href="index.html"> <p class="fr">tpg</p></a>
+              </li>
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle text-light px-5 fr" href="" data-bs-toggle="dropdown" aria-expanded="false">Our Services</a>
                 <ul class="dropdown-menu">
@@ -612,16 +615,17 @@ function navigateToPage3() {
       </footer>
     </div>  
 
-    <img src="{{ image.url }}" alt="Uploaded Image" 
-    onerror="this.src='path_to_placeholder_image.jpg'; 
-    this.alt='Placeholder Image'"> No image uploaded yet.
 
 
-    {% if image %}
-    <img src="{{ image.url }}" alt="Uploaded Image">
+
+  {% if image %}
+      {% for i in image %}
+        <img src="{{ image.image.url }}" alt="Uploaded Image">
+      {% endfor %}
   {% else %}
     <p>No image uploaded yet.</p>
   {% endif %}
 </body>
 </html>
 
+  

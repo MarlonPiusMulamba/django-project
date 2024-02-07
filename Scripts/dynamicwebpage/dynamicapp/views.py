@@ -5,7 +5,7 @@ from .models import slogan
 from .models import pic1
 from .models import about, post1, post2, post3, obj1, Image
 from django.contrib.admin.views.decorators import staff_member_required
-from .forms import Image
+from .forms import Image, SignupForm, Signup
 
 
 def dynamic_page(request):
@@ -18,14 +18,14 @@ def dynamic_page(request):
     p2contents = post2.objects.all()
     p3contents = post3.objects.all()
     obj1contents = obj1.objects.all()
-    image = Image.objects.all()
+    
 
 
     return render(request, 'dynamicapp/dynamic_page.html', {'contents': 
     contents, 'vcontents': vcontents, 'slcontents': slcontents,
     'pic1_instance' :pic1_instance, 'abtcontents': abtcontents,
     'p1contents' : p1contents, 'p2contents': p2contents, 'p3contents': p3contents,
-   'obj1contents': obj1contents, 'image':image})
+   'obj1contents': obj1contents})
 
 #ef display_pic1(request, pic1_id):
   #  pic1_instance = get_object_or_404(pic1, pk=pic1_id)
@@ -35,3 +35,25 @@ def dynamic_page(request):
     #image = Image.objects.last()  # Assuming you're retrieving the last uploaded image
     #return render(request, 'display_image.html', {'image': image})
 
+def Image(request): 
+    image = Image.objects.all(image=request.FILES['image'])
+
+    if request.method == 'POST':
+
+        content = {'image': image }
+    
+    return render(request, 'dynamicapp/dynamic_page.html', {content})
+
+
+def signup(request):
+    if request.method == 'POST':
+        form = SignupForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('signup_success')  # Redirect to a success page
+    else:
+        form = SignupForm()
+    return render(request, 'signup.html', {'form': form})
+
+def signup_success(request):
+    return render(request, 'signup_success.html')
