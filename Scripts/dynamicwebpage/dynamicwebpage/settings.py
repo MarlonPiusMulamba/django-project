@@ -117,7 +117,16 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media') # the path becomes [project dir]\media\
+MEDIA_URL = '/media/hongo_image/'
+
 STATIC_URL = 'static/'
+VALID_IMAGE_EXTENSIONS = [
+    ".jpg",
+    ".jpeg",
+    ".png",
+    ".gif",]
+
 STATICFILES_URLS = [
     os.path.join (BASE_DIR, 'dynamicwebpage/templates/static')
 ]
@@ -127,3 +136,6 @@ STATICFILES_URLS = [
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+MEDIA_URL = '//'
+
+

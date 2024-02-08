@@ -84,7 +84,7 @@ class obj7(models.Model):
 
 
 class Image(models.Model):
-    image = models.ImageField(upload_to='images/')
+    image = models.ImageField(upload_to='media/images/')
 
 class Signup(models.Model):
     id = models.CharField(max_length=20, primary_key=True)
@@ -93,3 +93,12 @@ class Signup(models.Model):
     email = models.EmailField()
     contact = models.CharField(max_length=20)
     password = models.CharField(max_length=100)
+
+
+class MyImageModel(models.Model):
+    nombre = models.CharField(max_length=100)
+    prob = models.FloatField()
+    imagen = models.ImageField(upload_to='media/hongo_images/')
+
+    def __str__(self):
+        return self.nombre

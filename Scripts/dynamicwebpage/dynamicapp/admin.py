@@ -2,7 +2,7 @@ from django.contrib import admin
 from .models import mission
 from .models import vision, slogan
 from .models import pic1, about, whatsets, post1, post3, post2
-from .models import obj1, obj2, obj3, obj4, obj5, obj6, obj7, Image
+from .models import obj1, obj2, obj3, obj4, obj5, obj6, obj7, Image, MyImageModel
 
 
 class missionAdmin(admin.ModelAdmin):
@@ -96,6 +96,8 @@ admin.site.register(Image)
 #@admin.register(Image)
 #class ImageAdmin(admin.ModelAdmin):
  #   pass
+
+admin.site.register(MyImageModel)
 
 
 
